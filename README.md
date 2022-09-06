@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Application help teachers for planning study year, with creating workload by hours taking into account that teachers in period 5-9 same, and something interesting feature in future
 
-Things you may want to cover:
+### Getting started
 
-* Ruby version
+### Scripts
 
-* System dependencies
+* `bin/rails server` - to run server localy without docker
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+TODO add docker scripts

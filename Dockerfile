@@ -3,7 +3,6 @@ FROM ruby:3.1.2-alpine as Builder
 RUN apk add --update --no-cache \
     build-base \
     postgresql-dev \
-    gcompat \
     git \
     tzdata
 

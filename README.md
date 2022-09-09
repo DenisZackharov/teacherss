@@ -6,7 +6,14 @@ This Application help teachers for planning study year, with creating workload b
 
 ### Scripts
 
+#### Standard
+
 * `bin/rails server` - to run server localy without docker
+* `bin/rspec` - to start tests localy
+
+#### Docker
+
 * `bin/docker-setup` - build Docker image and prepare DB
 * `bin/docker-server` - to run server with docker
+* `bin/docker-test` - to run test localy from docker
 * `bin/docker-sync` - install docker-sync library to speed up performance on Mac OSX

@@ -33,3 +33,7 @@
 .docker-sync/
 docker-compose.override.yml
 .env
+
+spec/examples.txt
+
+/coverage

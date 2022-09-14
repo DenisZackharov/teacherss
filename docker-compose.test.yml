@@ -1,0 +1,28 @@
+---
+version: "3.7"
+
+services:
+  web:
+    env_file:
+      - .env.test
+    build: .
+    volumes:
+      - .:/teacherss:cached
+      - bundle_cache:/bundle_cache
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    env_file:
+      - .env.test
+    image: postgres:14.1-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  bundle_cache:
+  pg_data:
+...

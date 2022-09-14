@@ -1,0 +1,25 @@
+---
+name: CI
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+  workflow_dispatch:
+env:
+  RAILS_ENV: test
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run a quality
+        run: bin/docker-quality
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run a test
+        run: bin/docker-test
+...

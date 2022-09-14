@@ -5,7 +5,7 @@ set -e
 if [ $RAILS_ENV = test ]
 then
   docker-compose -f docker-compose.test.yml up -d
-  docker-compose -f docker-compose.test.yml exec web bin/rspec ${@:-spec}
+  docker-compose -f docker-compose.test.yml exec -T web bin/rspec ${@:-spec}
 else
   docker-compose up -d
   docker-compose exec web bin/rspec ${@:-spec}

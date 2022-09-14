@@ -22,7 +22,6 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    tty: true
 volumes:
   bundle_cache:
   pg_data:

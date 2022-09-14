@@ -1,9 +1,17 @@
 #!/usr/bin/env sh
 
 set -e
-
-docker-compose up -d
-docker-compose exec web bin/rubocop
-docker-compose exec web bin/brakeman --quiet --skip-libs --exit-on-warn --no-pager
-docker-compose exec web bin/bundle-audit update
-docker-compose exec web bin/bundle-audit
+if [ "$RAILS_ENV" = "test" ]
+then
+  docker-compose up -f docker-compose.test.yml -d
+  docker-compose -f docker-compose.test.yml exec web bin/rubocop
+  docker-compose -f docker-compose.test.yml exec web bin/brakeman --quiet --skip-libs --exit-on-warn --no-pager
+  docker-compose -f docker-compose.test.yml exec web bin/bundle-audit update
+  docker-compose -f docker-compose.test.yml exec web bin/bundle-audit
+else
+  docker-compose up -d
+  docker-compose exec web bin/rubocop
+  docker-compose exec web bin/brakeman --quiet --skip-libs --exit-on-warn --no-pager
+  docker-compose exec web bin/bundle-audit update
+  docker-compose exec web bin/bundle-audit
+fi

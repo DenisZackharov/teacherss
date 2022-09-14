@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
 env:
   RAILS_ENV: test
-  RACK_ENV: test
 jobs:
   quality:
     runs-on: ubuntu-latest

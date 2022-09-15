@@ -10,20 +10,22 @@ env:
 jobs:
   docker_quality:
     needs: test, quality
-    if: ${{!(github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success')}}
-      run: exit 0
     runs-on: ubuntu-latest
     steps:
+      - name: Check another jobs
+        if: ${{(needs.test.result == 'success' &&  needs.quality.result == 'success')}}
+        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
   docker_test:
     needs: test, quality
-    if: ${{!(github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success')}}
-      run: exit 0
     runs-on: ubuntu-latest
     steps:
+      - name: Check another jobs
+        if: ${{(needs.test.result == 'success' &&  needs.quality.result == 'success')}}
+        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a test

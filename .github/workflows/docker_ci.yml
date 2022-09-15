@@ -11,6 +11,9 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
+      - name: Check job without docker
+        run: exit 0
+        if: ${{jobs.test.conslusion == 'success' &&  jobs.quality.conslusion == 'success'}}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
@@ -18,6 +21,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Check job without docker
+        run: exit 0
+        if: ${{jobs.test.conslusion == 'success' &&  jobs.quality.conslusion == 'success'}}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a test

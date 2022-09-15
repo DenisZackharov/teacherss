@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Docker CI
 on:
   push:
     branches: [ "master" ]

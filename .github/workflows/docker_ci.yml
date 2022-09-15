@@ -9,8 +9,8 @@ env:
   RAILS_ENV: test
 jobs:
   docker_quality:
-    needs: test, quality
     runs-on: ubuntu-latest
+    needs: test, quality
     steps:
       - name: Check another jobs
         if: ${{(needs.test.result == 'success' &&  needs.quality.result == 'success')}}
@@ -20,8 +20,8 @@ jobs:
       - name: Run a quality
         run: bin/docker-quality
   docker_test:
-    needs: test, quality
     runs-on: ubuntu-latest
+    needs: test, quality
     steps:
       - name: Check another jobs
         if: ${{(needs.test.result == 'success' &&  needs.quality.result == 'success')}}

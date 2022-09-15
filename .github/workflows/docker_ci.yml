@@ -8,14 +8,14 @@ on:
 env:
   RAILS_ENV: test
 jobs:
-  quality:
+  docker_quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
-  test:
+  docker_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

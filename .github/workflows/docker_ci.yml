@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check job without docker
-        run: exit 0
         if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success'}}
+        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check job without docker
-        run: exit 0
         if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success'}}
+        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a test

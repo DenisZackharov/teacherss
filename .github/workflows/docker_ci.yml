@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check job without docker
         run: exit 0
-        if: ${{workflow_job.test.status == 'completed' &&  workflow_job.quality.status == 'completed'}}
+        if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success'}}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality

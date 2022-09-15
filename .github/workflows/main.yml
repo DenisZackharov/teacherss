@@ -15,6 +15,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
+      - name: Reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
   test:
     runs-on: ubuntu-latest
     steps:

@@ -10,16 +10,20 @@ env:
 jobs:
   docker_quality:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
+      - name: Check job without docker
+        run: exit 0
+        if: ${{workflow_job.test.status == 'completed' &&  workflow_job.quality.status == 'completed'}}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
   docker_test:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
+      - name: Check job without docker
+        run: exit 0
+        if: ${{workflow_job.test.status == 'completed' &&  workflow_job.quality.status == 'completed'}}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a test

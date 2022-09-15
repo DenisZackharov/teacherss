@@ -9,21 +9,17 @@ env:
   RAILS_ENV: test
 jobs:
   docker_quality:
+    if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success', '[skip ci]'}}
     runs-on: ubuntu-latest
     steps:
-      - name: Check job without docker
-        if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success'}}
-        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
   docker_test:
+    if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success', '[skip ci]'}}
     runs-on: ubuntu-latest
     steps:
-      - name: Check job without docker
-        if: ${{github.jobs.test.result == 'success' &&  github.jobs.quality.result == 'success'}}
-        run: exit 0
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a test

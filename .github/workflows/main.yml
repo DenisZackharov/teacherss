@@ -7,15 +7,14 @@ on:
   workflow_dispatch:
 env:
   RAILS_ENV: test
+  REVIEWDOG_TOKEN: 8c36878b74d42401
 jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Run a quality
-        run: bin/docker-quality
-      - name: Reviewdog install
+      - name: reviewdog install
         uses: reviewdog/action-setup@v1
       - name: reviewdog
         run: reviewdog -reporter=github-pr-check

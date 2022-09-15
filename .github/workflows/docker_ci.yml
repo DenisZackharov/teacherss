@@ -3,26 +3,23 @@ name: Docker CI
 on:
   workflow_run:
     workflows: [ "CI" ]
-    branches: [ "master" ]
-    types: 
-      - completed
+    types: [ "completed" ]
 env:
   RAILS_ENV: test
 jobs:
-  docker_quality:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  quality_if_workflow_failure:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run a quality
         run: bin/docker-quality
-  docker_test:
+      - name: Run a test
+        run: bin/docker-test
+  quality_if_workflow_success:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run a test
-        run: bin/docker-test
+      run: echo 'Success!'
 ...

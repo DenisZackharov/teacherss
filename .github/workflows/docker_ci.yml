@@ -1,25 +1,33 @@
 ---
 name: Docker CI
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
   workflow_dispatch:
 env:
   RAILS_ENV: test
 jobs:
   docker_quality:
     runs-on: ubuntu-latest
+    needs: test, quality
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
       - name: Run a quality
         run: bin/docker-quality
   docker_test:
     runs-on: ubuntu-latest
+    needs: test, quality
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
       - name: Run a test
         run: bin/docker-test
 ...

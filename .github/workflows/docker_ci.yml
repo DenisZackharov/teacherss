@@ -2,9 +2,11 @@
 name: Docker CI
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows:
+      - CI
     types:
       - completed
+    branches: [ 2-make-docker-jobs-success-if-jobs-without-docker-success, master ]
   workflow_dispatch:
 env:
   RAILS_ENV: test

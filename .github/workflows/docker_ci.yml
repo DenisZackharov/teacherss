@@ -1,9 +1,9 @@
 ---
 name: Docker CI
 on:
-  workflow_run:
-    workflows: [CI]
-    types: [completed]
+  push:
+    branches: [ "master" ]
+  pull_request:
   workflow_dispatch:
 env:
   RAILS_ENV: test

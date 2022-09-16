@@ -10,7 +10,6 @@ env:
 jobs:
   quality_if_workflow_failure:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,7 +19,6 @@ jobs:
         run: bin/docker-test
   quality_if_workflow_success:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: echo 'Success!'
 ...

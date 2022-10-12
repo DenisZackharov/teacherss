@@ -1,15 +1,18 @@
 ---
 name: Docker CI
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
+  workflow_run:
+    workflows: ["main"]
+    branches: [master]
+    types: 
+      - completed
   workflow_dispatch:
 env:
   RAILS_ENV: test
 jobs:
   docker_quality:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

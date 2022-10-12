@@ -11,6 +11,7 @@ gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "redis", "~> 4.0"
 gem "sassc-rails"
+gem "slim-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
@@ -31,6 +32,7 @@ group :development, :test do
   gem "rubocop-rake", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-thread_safety", require: false
+  gem "slim_lint", require: false
 end
 
 group :development do

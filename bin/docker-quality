@@ -1,17 +1,35 @@
 #!/usr/bin/env sh
 
 set -e
-if [ $RAILS_ENV = test ]
+if [ "$RAILS_ENV" = test ]
 then
   docker-compose -f docker-compose.test.yml up -d
+
+  echo "===== Rubocop ====="
   docker-compose -f docker-compose.test.yml exec -T web bin/rubocop
+
+  echo "\n===== Brakeman ====="
   docker-compose -f docker-compose.test.yml exec -T web bin/brakeman --quiet --skip-libs --exit-on-warn --no-pager
+
+  echo "\n===== Bundle audit ====="
   docker-compose -f docker-compose.test.yml exec -T web bin/bundle-audit update
   docker-compose -f docker-compose.test.yml exec -T web bin/bundle-audit
+
+  echo "\n===== Slim lint ====="
+  docker-compose -f docker-compose.test.yml exec -T web bin/slim-lint app/views
 else
   docker-compose up -d
+
+  echo "===== Rubocop ====="
   docker-compose exec web bin/rubocop
+
+  echo "\n===== Brakeman ====="
   docker-compose exec web bin/brakeman --quiet --skip-libs --exit-on-warn --no-pager
+
+  echo "\n===== Bundle audit ====="
   docker-compose exec web bin/bundle-audit update
   docker-compose exec web bin/bundle-audit
+
+  echo "\n===== Slim lint ====="
+  docker-compose exec web bin/slim-lint app/views
 fi

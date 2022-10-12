@@ -36,7 +36,7 @@ jobs:
         run: bin/rspec
 
       - name: Run quality
-        run: bin/quality\
+        run: bin/quality
 
   Deploy:
     if: ${{ github.event_name == 'push'  && github.ref == 'refs/heads/master' }}

@@ -3,7 +3,7 @@ name: Docker CI
 on:
   workflow_run:
     workflows: ["main"]
-    branches: [master]
+    branches: [make-docker-action-not-required]
     types: 
       - completed
   workflow_dispatch:

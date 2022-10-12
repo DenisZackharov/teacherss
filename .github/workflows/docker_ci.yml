@@ -9,7 +9,9 @@ env:
   RAILS_ENV: test
 jobs:
   docker_quality:
+    if: ${{ github.event_name == 'push'  && github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

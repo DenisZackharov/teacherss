@@ -1,15 +1,15 @@
 ---
 name: Docker CI
 on:
-  workflow_run:
-    workflows: ["main"]
-    types: 
-      - completed
+  push:
+    branches: [ "master" ]
+  pull_request:
   workflow_dispatch:
 env:
   RAILS_ENV: test
 jobs:
   docker_quality:
+    if: ${{ github.event_name == 'push'  && github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
 
     steps:

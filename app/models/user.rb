@@ -15,5 +15,5 @@ class User < ApplicationRecord
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
             numericality: { greater_than_or_equal_to: 0 }
 
-  enumerize :role, in: ROLES
+  enumerize :role, in: ROLES, predicates: true, scope: :shallow
 end

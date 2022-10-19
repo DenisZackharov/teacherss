@@ -9,9 +9,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :middle_name
       t.string :full_name
       t.string :role, null: false
-      t.integer :category
-      t.integer :work_experience
+      t.string :category
+      t.float :work_experience_in_months
       t.date :birthdate
+      t.date :hired_date
       t.integer :minimum_working_hours
       t.integer :maximum_working_hours
       t.string :email,              null: false, default: ""

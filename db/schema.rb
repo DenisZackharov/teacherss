@@ -20,9 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_200820) do
     t.string "middle_name"
     t.string "full_name"
     t.string "role", null: false
-    t.integer "category"
-    t.integer "work_experience"
+    t.string "category"
+    t.float "work_experience_in_months"
     t.date "birthdate"
+    t.date "hired_date"
     t.integer "minimum_working_hours"
     t.integer "maximum_working_hours"
     t.string "email", default: "", null: false

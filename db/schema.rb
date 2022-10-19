@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_200820) do
     t.float "work_experience_in_months"
     t.date "birthdate"
     t.date "hired_date"
-    t.integer "minimum_working_hours"
-    t.integer "maximum_working_hours"
+    t.integer "minimum_working_hours_per_week"
+    t.integer "maximum_working_hours_per_week"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

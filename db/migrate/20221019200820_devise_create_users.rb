@@ -13,8 +13,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.float :work_experience_in_months
       t.date :birthdate
       t.date :hired_date
-      t.integer :minimum_working_hours
-      t.integer :maximum_working_hours
+      t.integer :minimum_working_hours_per_week
+      t.integer :maximum_working_hours_per_week
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

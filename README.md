@@ -1,4 +1,4 @@
-[![CI](https://github.com/DenisZackharov/teacherss/actions/workflows/ci.yml/badge.svg)](https://github.com/DenisZackharov/teacherss/actions/workflows/ci.yml)
+[![CI](https://github.com/DenisZackharov/teacherss/actions/workflows/main.yml/badge.svg)](https://github.com/DenisZackharov/teacherss/actions/workflows/ci.yml)
 
 # README
 

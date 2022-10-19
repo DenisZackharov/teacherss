@@ -15,18 +15,11 @@ List of steps to manually test introduced functionality:
 3. Something do
 4. Run tests with `bin/rspec`
 
-### Review notes
+# Checklist:
 
-While reviewing pull-request (especially when it's your pull-request),
-please make sure that:
-
-- you understand what problem is solved by PR and how is it solved
-- new tests are in place, no redundant tests
-- DB schema changes reflect new migrations
-- newly introduced DB fields have indexes and constraints
-- there are no missed files (migrations, view templates)
-- required ENV variables added and described in `.env.example` and added to Heroku
-- associated Heroku review app works correctly with introduced changes
+- [ ] I have performed a self-review of my own code
+- [ ] I have added tests for new functionality
+- [ ] My pull request is shorter than 300 lines
 
 ### Deploy notes
 

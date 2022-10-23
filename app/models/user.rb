@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
-            numericality: { greater_than_or_equal_to: 0 }
+            numericality: { greater_than_or_equal_to: 0 }, on: :update
 
-  enumerize :role, in: ROLES, predicates: true, scope: :shallow
+  enumerize :role, in: ROLES, predicates: true, scope: :shallow, default: :super_admin
 end

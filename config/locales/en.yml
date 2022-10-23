@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  confirm_message: "Are you sure?"

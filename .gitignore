@@ -37,3 +37,7 @@ docker-compose.override.yml
 spec/examples.txt
 
 /coverage
+
+.yarn
+
+app/assets/builds/*

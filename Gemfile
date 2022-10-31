@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem "bootsnap", require: false
-gem "bootstrap", "~> 5.2.2"
 gem "devise"
 gem "enumerize"
 gem "importmap-rails"
@@ -28,7 +27,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "dotenv-rails"
   gem "factory_bot_rails"
-  gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
+  gem "faker"
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-i18n", require: false

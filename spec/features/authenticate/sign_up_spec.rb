@@ -4,11 +4,11 @@ feature "Sign Up" do
   scenario "Sign Up with valid attributes" do
     visit new_user_registration_path
 
-    fill_in "First name",	with: "John"
-    fill_in "Last name",	with: "Doe"
-    fill_in "Email",	with: "john.doe@example.com"
-    find("div.user_password").fill_in "Password",	with: "password"
-    fill_in "Password confirmation",	with: "password"
+    fill_in "user_first_name",	with: "John"
+    fill_in "user_last_name",	with: "Doe"
+    fill_in "user_email",	with: "john.doe@example.com"
+    fill_in "user_password",	with: "password"
+    fill_in "user_password_confirmation",	with: "password"
 
     click_on "Sign up"
 
@@ -19,11 +19,11 @@ feature "Sign Up" do
   scenario "Sign Up with invalid attributes" do
     visit new_user_registration_path
 
-    fill_in "First name",	with: "John"
-    fill_in "Last name",	with: "Doe"
-    fill_in "Email",	with: "john"
-    find("div.user_password").fill_in "Password",	with: "password"
-    fill_in "Password confirmation",	with: "pas"
+    fill_in "user_first_name",	with: "John"
+    fill_in "user_last_name",	with: "Doe"
+    fill_in "user_email",	with: "john"
+    fill_in "user_password",	with: "password"
+    fill_in "user_password_confirmation",	with: "pas"
 
     click_on "Sign up"
 

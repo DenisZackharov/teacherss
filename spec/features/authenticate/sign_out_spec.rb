@@ -7,6 +7,7 @@ feature "Sign Out" do
 
   scenario "Successfully Sign Out" do
     sign_in("example@gmail.com", "123456")
+
     click_on "Sign Out"
     expect(page).to have_content("Signed out successfully.")
   end

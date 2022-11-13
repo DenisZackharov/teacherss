@@ -9,13 +9,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "support/simplecov"
 require "rspec/rails"
 require "capybara/rspec"
-
-Capybara.configure do |config|
-  config.javascript_driver = :selenium_chrome
-  config.default_driver = :selenium_chrome
-  config.default_max_wait_time = 10
-  config.save_path = "tmp/capybara"
-end
+require "capybara-screenshot/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

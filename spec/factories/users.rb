@@ -6,7 +6,7 @@ FactoryBot.define do
     role { "teacher" }
     password { SecureRandom.hex(10) }
     minimum_working_hours_per_week { 5 }
-    minimum_working_hours_per_week { 10 }
+    maximum_working_hours_per_week { 10 }
 
     trait :head_teacher do
       role { "head_teacher" }

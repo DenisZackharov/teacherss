@@ -11,7 +11,6 @@ class User < ApplicationRecord
   scope :head_teachers, -> { where(role: :head_teacher) }
 
   validates :first_name, :last_name, :email, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
             numericality: { greater_than_or_equal_to: 0 }, on: :update
 

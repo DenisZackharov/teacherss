@@ -8,6 +8,14 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require "support/simplecov"
 require "rspec/rails"
+require "capybara/rspec"
+
+Capybara.configure do |config|
+  config.javascript_driver = :selenium_chrome
+  config.default_driver = :selenium_chrome
+  config.default_max_wait_time = 10
+  config.save_path = "tmp/capybara"
+end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -18,6 +26,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include UserHelper
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!

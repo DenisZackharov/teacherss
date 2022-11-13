@@ -34,5 +34,8 @@ RSpec/Capybara/FeatureMethods:
       - feature
       - scenario
 
+RSpec/ExampleLength:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Enabled: false

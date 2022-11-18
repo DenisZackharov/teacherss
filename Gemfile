@@ -4,11 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem "bootsnap", require: false
+gem "bootstrap", "~> 5.2.2"
 gem "devise"
 gem "enumerize"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.1"
+gem "pry"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "redis", "~> 4.0"
@@ -46,6 +48,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "capybara-screenshot"
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "webdrivers"

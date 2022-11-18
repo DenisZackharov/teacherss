@@ -28,3 +28,14 @@ Style/StringLiterals:
 
 Rails/Output:
   Enabled: false
+
+RSpec/Capybara/FeatureMethods:
+  EnabledMethods:
+      - feature
+      - scenario
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false

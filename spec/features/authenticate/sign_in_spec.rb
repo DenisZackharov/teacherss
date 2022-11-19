@@ -2,10 +2,10 @@ require "rails_helper"
 
 feature "Sign In" do
   before do
-    create :user, email: "example@gmail.com", password: "123456", firstname: "Bilbo", lastname: "Baggins"
+    create(:user, email: "example@gmail.com", password: "123456", firstname: "Bilbo", lastname: "Baggins")
   end
 
-  let(:unconfirmed_user) { create :user, :not_confirmed }
+  let(:unconfirmed_user) { create(:user, :not_confirmed) }
 
   scenario "Visitor Sign in with valid credentials" do
     sign_in("example@gmail.com", "123456")

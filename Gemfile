@@ -6,6 +6,7 @@ ruby "3.1.2"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.2.2"
 gem "devise"
+gem "draper"
 gem "enumerize"
 gem "importmap-rails"
 gem "jbuilder"

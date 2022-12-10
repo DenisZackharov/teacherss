@@ -10,6 +10,9 @@ nav.navbar.navbar-expand-lg.bg-light
                 class: "nav-link"
         - elsif user_signed_in?
           li.nav-item
+            =< link_to edit_user_registration_path, class: "nav-link" do
+              = raw("#{current_user.full_name} <span class='badge badge-light'>#{current_user.role}</span>")
+          li.nav-item
             =< button_to "Sign Out", destroy_user_session_path,
                 method: :delete, class: "nav-link"
         - elsif user_signed_in? && current_user.teacher?
@@ -21,7 +24,7 @@ nav.navbar.navbar-expand-lg.bg-light
             =< link_to "Teachers", root_path, class: "nav-link"
           li.nav-item
             =< link_to "Teacher specializations", root_path,
-                class: "nav-link"
+               class: "nav-link"
           li.nav-item
             =< link_to "Teaching plan", root_path, class: "nav-link"
           li.nav-item

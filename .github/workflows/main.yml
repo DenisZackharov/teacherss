@@ -37,11 +37,10 @@ jobs:
         with:
           node-version: '14.18.0'
 
-      - name: yarn
-        run: yarn
-
-      - name: yarn install
-        run: yarn install    
+      - name: Run yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
         
       - name: Set yarn version
         run: yarn set version 3.3.0

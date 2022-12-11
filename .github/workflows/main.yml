@@ -37,8 +37,11 @@ jobs:
         with:
           node-version: '14.18.0'
 
-      - name: install yarn
-        run: npm i -g yarn@3.3.0
+      - name: Install yarn
+        run: npm i -g yarn@1.22.5
+
+      - name: Set yarn version
+        run: yarn set version 3.3.0
 
       - name: Install yarn packages
         run: |

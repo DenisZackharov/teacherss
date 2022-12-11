@@ -37,13 +37,20 @@ jobs:
         with:
           node-version: '14.18.0'
 
-      - name: Run yarn install
-        uses: borales/actions-yarn@v4
+      - name: install yarn
+        run: npm i -g yarn@1.22.5
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn cache directory
+        uses: actions/cache@v2.1.5
         with:
-          cmd: install
-        
-      - name: Set yarn version
-        run: yarn set version 3.3.0
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install yarn packages
         run: |

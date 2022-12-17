@@ -9,8 +9,6 @@ h2
     = f.input :email, required: true, autofocus: true
     = f.input :first_name, autofocus: true
     = f.input :last_name, autofocus: true
-    - if User::MANAGE_SYSTEM_ROLES.include?(current_user.role)
-      = f.input :role, autofocus: true
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       p
         | Currently waiting confirmation for:

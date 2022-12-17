@@ -4,7 +4,6 @@ class User < ApplicationRecord
   MAX_HOURS_PER_WEEK = 35
   ROLES = %w[super_admin teacher head_teacher director].freeze
   EMPLOYEES_WITH_HOURS = %w[teacher head_teacher].freeze
-  MANAGE_SYSTEM_ROLES = %w[head_teacher director].freeze
 
   # TODO: connect :confirmable when email sender will work
   devise :database_authenticatable, :registerable,
@@ -13,7 +12,7 @@ class User < ApplicationRecord
   scope :teachers, -> { where(role: :teacher) }
   scope :head_teachers, -> { where(role: :head_teacher) }
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :first_name, :last_name, presence: true
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_HOURS_PER_WEEK },
             if: :employees_with_hours?

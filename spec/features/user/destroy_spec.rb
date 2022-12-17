@@ -4,9 +4,8 @@ feature "Destroy" do
   before do
     create(
       :user,
+      :director,
       email: "example@gmail.com",
-      password: "123456",
-      role: "director",
       first_name: "Bilbo",
       last_name: "Baggins"
     )

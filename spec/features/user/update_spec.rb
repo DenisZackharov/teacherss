@@ -1,12 +1,11 @@
 require "rails_helper"
 
-feature "Edit" do
+feature "Update" do
   before do
     create(
       :user,
+      :director,
       email: "example@gmail.com",
-      password: "123456",
-      role: "director",
       first_name: "Bilbo",
       last_name: "Baggins"
     )
@@ -14,6 +13,7 @@ feature "Edit" do
 
   scenario "edit with current password" do
     sign_in("example@gmail.com", "123456")
+
     click_on "Bilbo Baggins"
 
     fill_in "user_first_name", with: "John"
@@ -28,6 +28,7 @@ feature "Edit" do
 
   scenario "edit without current password" do
     sign_in("example@gmail.com", "123456")
+
     click_on "Bilbo Baggins"
 
     fill_in "user_first_name", with: "John"

@@ -10,7 +10,7 @@ nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
             class: "nav-link"
     - elsif user_signed_in?
       li.nav-item
-        .badge = current_user.role.capitalize
+        .badge = current_user.role.humanize
       li.nav-item
         =< link_to current_user.full_name, edit_user_registration_path,
             class: "nav-link"

@@ -40,8 +40,6 @@ spec/examples.txt
 
 .yarn
 
-.yarnrc.yml
-
 app/assets/builds/*
 
 /app/assets/builds/*

@@ -6,11 +6,18 @@ This Application help teachers for planning study year, with creating workload b
 
 ### Getting started
 
+### Setup Project
+
+1. Clone project `git clone https://github.com/DenisZackharov/teacherss.git`
+2. Install gems and yarn packages with run commands bellow `bundle`, `yarn`
+3. Create database, and run migrations `bin/rails db:create` `bin/rails db:migrate`
+4. For running server run `bin/dev`
+
 ### Scripts
 
 #### Standard
 
-* `bin/rails server` - to run server localy without docker
+* `bin/dev` - to run server localy without docker
 * `bin/rspec` - to start tests localy
 
 #### Docker

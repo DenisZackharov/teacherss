@@ -2,7 +2,7 @@ module Authenticate
   extend ActiveSupport::Concern
 
   SIGN_UP_PARAMS = %i[first_name last_name email password password_confirmation].freeze
-  UPDATE_PARAMS = %i[first_name last_name role email password].freeze
+  UPDATE_PARAMS = %i[first_name last_name email password].freeze
 
   included do
     helper do

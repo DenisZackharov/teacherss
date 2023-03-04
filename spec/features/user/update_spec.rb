@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Update" do
+feature "Update user" do
   before do
     create(
       :user,

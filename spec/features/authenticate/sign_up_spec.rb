@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Sign Up" do
-  scenario "Sign Up with valid attributes" do
+  scenario "with valid attributes" do
     visit new_user_registration_path
 
     fill_in "user_first_name",	with: "John"
@@ -16,7 +16,7 @@ feature "Sign Up" do
     expect(User.count).to eq(1)
   end
 
-  scenario "Sign Up with invalid attributes" do
+  scenario "with invalid attributes" do
     visit new_user_registration_path
 
     fill_in "user_first_name",	with: "John"
@@ -32,7 +32,7 @@ feature "Sign Up" do
     expect(User.count).to eq(0)
   end
 
-  scenario "Sign Up with existing email" do
+  scenario "with existing email" do
     visit new_user_registration_path
 
     create(:user, email: "john.doe@example.com")

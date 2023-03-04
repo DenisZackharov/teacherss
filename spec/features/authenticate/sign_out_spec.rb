@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Sign Out" do
   include_context "when user signed in"
 
-  scenario "Successfully Sign Out" do
+  scenario "user sign out successfully" do
     click_on "Sign Out"
 
     expect(page).to have_content("Signed out successfully.")

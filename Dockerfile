@@ -17,7 +17,6 @@ RUN bundle install
 FROM ruby:3.1.2-alpine as Final
 
 RUN apk add --update --no-cache \
-    postgresql-client \
     tzdata
 
 COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/

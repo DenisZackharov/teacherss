@@ -1,5 +1,8 @@
 nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
-  = link_to image_tag("logo.png"), root_path, class: "nav-link"
+  .navbar-nav.ml-auto
+    = link_to image_tag("logo.png"), root_path, class: "nav-link"
+    .nav-link.company-name
+      = current_user&.company&.name
   ul.navbar-nav.ml-auto
     li.nav-item
     - if !user_signed_in?

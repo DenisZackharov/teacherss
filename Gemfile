@@ -20,6 +20,7 @@ gem "seedbank"
 gem "simple_form"
 gem "slim-rails"
 gem "stimulus-rails"
+gem "strong_migrations"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 

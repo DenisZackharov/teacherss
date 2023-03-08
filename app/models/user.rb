@@ -9,10 +9,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  scope :teachers, -> { where(role: :teacher) }
-  scope :head_teachers, -> { where(role: :head_teacher) }
+  belongs_to :company, optional: true
 
   validates :first_name, :last_name, presence: true
+  validates :email, uniqueness: { scope: :company }
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_HOURS_PER_WEEK },
             if: :employees_with_hours?
@@ -22,6 +22,9 @@ class User < ApplicationRecord
                                              if: :minimum_working_hours_per_week
 
   enumerize :role, in: ROLES, predicates: true, scope: :shallow, default: :director
+
+  scope :teachers, -> { where(role: :teacher) }
+  scope :head_teachers, -> { where(role: :head_teacher) }
 
   def employees_with_hours?
     EMPLOYEES_WITH_HOURS.include?(role)

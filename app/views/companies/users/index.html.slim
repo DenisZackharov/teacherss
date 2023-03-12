@@ -1,0 +1,9 @@
+h1 Teachers
+table
+  tr
+    th Full Name
+    th Role
+  - users.each do |user|
+    tr
+      td = user.full_name
+      td = user.role

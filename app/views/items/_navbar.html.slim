@@ -1,8 +1,8 @@
 nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
   .navbar-nav.ml-auto
     = link_to image_tag("logo.png"), root_path, class: "nav-link"
-    .nav-link.company-name
-      = current_user&.company&.name
+    .company-name
+      = link_to current_user&.company&.name, company_path(current_user&.company), class: "nav-link"
   ul.navbar-nav.ml-auto
     li.nav-item
     - if !user_signed_in?
@@ -13,9 +13,9 @@ nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
             class: "nav-link"
     - elsif user_signed_in?
       li.nav-item
-        .badge = current_user.role.humanize
+        .badge = current_user.role
       li.nav-item
-        =< link_to current_user.full_name, edit_user_registration_path,
+        =< link_to current_user.first_name_last_name, edit_user_registration_path,
             class: "nav-link"
       li.nav-item
         =< button_to "Sign Out", destroy_user_session_path,

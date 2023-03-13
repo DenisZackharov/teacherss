@@ -14,22 +14,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_164758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "kind", null: false
-    t.string "subdomain", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subdomain"], name: "index_companies_on_subdomain", unique: true
-  end
-
-  create_table "company_subjects", force: :cascade do |t|
-    t.bigint "company_id", null: false
+  create_table "organization_subjects", force: :cascade do |t|
+    t.bigint "organization_id", null: false
     t.bigint "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_company_subjects_on_company_id"
-    t.index ["subject_id"], name: "index_company_subjects_on_subject_id"
+    t.index ["organization_id"], name: "index_organization_subjects_on_organization_id"
+    t.index ["subject_id"], name: "index_organization_subjects_on_subject_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "kind", default: "school", null: false
+    t.string "subdomain", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subdomain"], name: "index_organizations_on_subdomain", unique: true
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -62,13 +62,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_164758) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id"
+    t.bigint "organization_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email", "company_id"], name: "index_users_on_email_and_company_id", unique: true
+    t.index ["email", "organization_id"], name: "index_users_on_email_and_organization_id", unique: true
+    t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "company_subjects", "companies"
-  add_foreign_key "company_subjects", "subjects"
+  add_foreign_key "organization_subjects", "organizations"
+  add_foreign_key "organization_subjects", "subjects"
 end

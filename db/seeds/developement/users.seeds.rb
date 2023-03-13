@@ -1,7 +1,7 @@
-after "developement:companies" do # rubocop:disable Metrics/BlockLength
+after "developement:organizations" do
   puts "Creating users... "
 
-  company = Company.first
+  organization = Organization.first
 
   User.find_or_create_by(email: "super_admin@example.com") do |user|
     user.first_name = "Gendalf"
@@ -15,7 +15,7 @@ after "developement:companies" do # rubocop:disable Metrics/BlockLength
     user.last_name = "Baggins"
     user.role = "director"
     user.password = "123456"
-    user.company = company
+    user.organization = organization
   end
 
   User.find_or_create_by(email: "head_teacher@example.com") do |user|
@@ -25,7 +25,7 @@ after "developement:companies" do # rubocop:disable Metrics/BlockLength
     user.password = "123456"
     user.minimum_working_hours_per_week = 5
     user.maximum_working_hours_per_week = 10
-    user.company = company
+    user.organization = organization
   end
 
   User.find_or_create_by(email: "teacher@example.com") do |user|
@@ -35,7 +35,7 @@ after "developement:companies" do # rubocop:disable Metrics/BlockLength
     user.password = "123456"
     user.minimum_working_hours_per_week = 5
     user.maximum_working_hours_per_week = 10
-    user.company = company
+    user.organization = organization
   end
 
   puts "Done!"

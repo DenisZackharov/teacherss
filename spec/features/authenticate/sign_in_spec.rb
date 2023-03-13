@@ -1,12 +1,12 @@
 require "rails_helper"
 
 feature "Sign In" do
-  let!(:company) { create(:company, name: "School 13") }
+  let!(:organization) { create(:organization, name: "School 13") }
 
   before do
     create(
       :user,
-      company:,
+      organization:,
       email: "example@gmail.com",
       password: "123456",
       first_name: "Bilbo",

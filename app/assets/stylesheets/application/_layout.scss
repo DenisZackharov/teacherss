@@ -1,5 +1,5 @@
 $gray: rgb(183, 182, 182);
-$company-name-color: rgb(74, 72, 72);
+$organization-name-color: rgb(74, 72, 72);
 
 main {
   border: 2px solid $gray;
@@ -11,7 +11,7 @@ main {
   width: 75%;
 }
 
-.company-name {
-  color: $company-name-color;
+.organization-name {
+  color: $organization-name-color;
   margin-left: 20px;
 }

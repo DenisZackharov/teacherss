@@ -9,7 +9,7 @@ Subject.find_or_create_by(name: "Chemistry")
 Subject.find_or_create_by(name: "Biology")
 Subject.find_or_create_by(name: "Informatics")
 Subject.find_or_create_by(name: "Geography")
-Subject.find_or_create_by(name: "Litrature")
+Subject.find_or_create_by(name: "Literature")
 Subject.find_or_create_by(name: "Social Science")
 Subject.find_or_create_by(name: "Physical Education")
 

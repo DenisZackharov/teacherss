@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "root#index"
 
-  resources :companies, only: %i[show] do
-    resources :users, only: %i[index], module: :companies
+  resources :organizations, only: %i[show] do
+    resources :users, only: %i[index], module: :organizations
   end
 end

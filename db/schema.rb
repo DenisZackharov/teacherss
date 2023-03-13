@@ -14,13 +14,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_175931) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
+  create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
-    t.string "kind", null: false
+    t.string "kind", default: "school", null: false
     t.string "subdomain", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subdomain"], name: "index_companies_on_subdomain", unique: true
+    t.index ["subdomain"], name: "index_organizations_on_subdomain", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,10 +46,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_175931) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id"
+    t.bigint "organization_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email", "company_id"], name: "index_users_on_email_and_company_id", unique: true
+    t.index ["email", "organization_id"], name: "index_users_on_email_and_organization_id", unique: true
+    t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

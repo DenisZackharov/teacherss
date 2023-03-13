@@ -3,6 +3,6 @@ class AddUniqConstraintToUsers < ActiveRecord::Migration[7.0]
 
   def change
     remove_index :users, :email
-    add_index :users, %i[email company_id], unique: true, algorithm: :concurrently
+    add_index :users, %i[email organization_id], unique: true, algorithm: :concurrently
   end
 end

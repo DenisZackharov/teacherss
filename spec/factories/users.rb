@@ -7,7 +7,7 @@ FactoryBot.define do
     password { "123456" }
     minimum_working_hours_per_week { 5 }
     maximum_working_hours_per_week { 10 }
-    company
+    organization
 
     trait :head_teacher do
       role { "head_teacher" }

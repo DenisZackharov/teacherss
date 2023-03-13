@@ -9,10 +9,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :company, optional: true
+  belongs_to :organization, optional: true
 
   validates :first_name, :last_name, presence: true
-  validates :email, uniqueness: { scope: :company }
+  validates :email, uniqueness: { scope: :organization }
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_HOURS_PER_WEEK },
             if: :employees_with_hours?

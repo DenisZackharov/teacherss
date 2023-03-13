@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :company do
+  factory :organization do
     name { Faker::Company.name }
-    subdomain { name.downcase.delete(" ") }
+    subdomain { name.downcase.tr(" ", "_") }
     kind { "school" }
   end
 end

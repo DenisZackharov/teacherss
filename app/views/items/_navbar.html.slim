@@ -2,8 +2,8 @@ nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
   .navbar-nav.ml-auto
     = link_to image_tag("logo.png"), root_path, class: "nav-link"
     .company-name
-      - if current_user&.organization
-        = link_to current_user.organization&.name,
+      - if current_user&.organization && current_user.director?
+        = link_to current_user.organization.name,
           organization_path(current_user.organization),
           class: "nav-link"
   ul.navbar-nav.ml-auto

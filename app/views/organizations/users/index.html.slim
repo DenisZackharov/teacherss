@@ -1,9 +1,10 @@
-h1 Teachers
-table
-  tr
-    th Full Name
-    th Role
-  - users.each do |user|
+= turbo_frame_tag "organization_content"
+  h1 Staff
+  table
     tr
-      td = user.full_name
-      td = user.role
+      th Full Name
+      th Position
+    - users.each do |user|
+      tr
+        td = user.full_name
+        td = user.role

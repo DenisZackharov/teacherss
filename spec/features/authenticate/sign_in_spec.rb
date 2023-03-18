@@ -6,6 +6,7 @@ feature "Sign In" do
   before do
     create(
       :user,
+      :director,
       organization:,
       email: "example@gmail.com",
       password: "123456",

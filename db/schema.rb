@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_175931) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_164758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organization_subjects", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_organization_subjects_on_organization_id"
+    t.index ["subject_id"], name: "index_organization_subjects_on_subject_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_175931) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subdomain"], name: "index_organizations_on_subdomain", unique: true
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_175931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "organization_subjects", "organizations"
+  add_foreign_key "organization_subjects", "subjects"
 end

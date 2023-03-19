@@ -21,7 +21,7 @@ feature "Show organization" do
 
   let(:organization) { create(:organization, name: "School 123") }
 
-  scenario "show organization" do
+  scenario "User views organization page" do
     sign_in("example@gmail.com", "123456")
 
     expect(page).to have_content("School 123")
@@ -33,8 +33,8 @@ feature "Show organization" do
     expect(h1).to have_content("School 123")
   end
 
-  context "when staff tab" do
-    scenario "show staff" do
+  context "when user choose staff tab" do
+    scenario "User views staff table" do
       sign_in("example@gmail.com", "123456")
 
       expect(page).to have_content("School 123")

@@ -8,7 +8,7 @@ describe OrganizationPolicy do
 
     let(:record) { create(:organization) }
 
-    context "when user from organization and he is direcor" do
+    context "when user from organization and he is director" do
       let(:current_user) { create(:user, :director, organization: record) }
 
       it { is_expected.to be_truthy }

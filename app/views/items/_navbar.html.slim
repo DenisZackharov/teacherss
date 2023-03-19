@@ -1,6 +1,7 @@
 nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
   .navbar-nav.ml-auto
     = link_to image_tag("logo.png"), root_path, class: "nav-link"
+    / TODO: Look at this after implement sign up with creating organization
     - if current_user&.organization && current_user&.director?
       .company-name
         = link_to current_user.organization.name,

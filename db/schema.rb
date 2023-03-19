@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_164758) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_181034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "field_of_studies", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_field_of_studies_on_name", unique: true
+  end
+
+  create_table "organization_field_of_studies", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "field_of_study_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_of_study_id"], name: "index_organization_field_of_studies_on_field_of_study_id"
+    t.index ["organization_id"], name: "index_organization_field_of_studies_on_organization_id"
+  end
 
   create_table "organization_subjects", force: :cascade do |t|
     t.bigint "organization_id", null: false
@@ -69,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_164758) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "organization_field_of_studies", "field_of_studies"
+  add_foreign_key "organization_field_of_studies", "organizations"
   add_foreign_key "organization_subjects", "organizations"
   add_foreign_key "organization_subjects", "subjects"
 end

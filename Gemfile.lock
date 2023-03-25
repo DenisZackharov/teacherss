@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.6.5)
+      ruby-next-core (>= 0.14.0)
     actioncable (7.0.4.3)
       actionpack (= 7.0.4.3)
       activesupport (= 7.0.4.3)
@@ -103,6 +105,8 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    decent_exposure (3.0.4)
+      activesupport (>= 4.0)
     devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -282,6 +286,7 @@ GEM
       rubocop-capybara (~> 2.17)
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)
+    ruby-next-core (0.15.3)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -349,6 +354,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_policy
   bootsnap
   brakeman
   bundler-audit
@@ -356,6 +362,7 @@ DEPENDENCIES
   capybara-screenshot
   cssbundling-rails
   debug
+  decent_exposure
   devise
   dotenv-rails
   draper

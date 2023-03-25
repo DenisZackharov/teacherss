@@ -1,0 +1,10 @@
+= turbo_frame_tag "organization_content"
+  h1 Staff
+  table
+    tr
+      th Full Name
+      th Position
+    - users.each do |user|
+      tr
+        td = user.full_name
+        td = user.role

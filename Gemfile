@@ -3,8 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "action_policy"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "decent_exposure"
 gem "devise"
 gem "draper"
 gem "enumerize"

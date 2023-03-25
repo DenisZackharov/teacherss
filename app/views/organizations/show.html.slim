@@ -1,0 +1,8 @@
+h1 = organization.name
+nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
+  .navbar-nav.ml-auto
+    = link_to "Staff",
+              organization_users_path(organization),
+              data: { turbo: true, turbo_frame: "organization_content" },
+              class: "nav-link"
+= turbo_frame_tag "organization_content"

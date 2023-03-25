@@ -6,6 +6,8 @@ class Organization < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :organization_subjects, dependent: :destroy
   has_many :subjects, through: :organization_subjects
+  has_many :organization_field_of_studies, dependent: :destroy
+  has_many :field_of_studies, through: :organization_field_of_studies
 
   validates :name, :kind, presence: true
   validates :subdomain, presence: true, uniqueness: true

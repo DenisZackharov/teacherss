@@ -14,10 +14,7 @@ feature "List subjects" do
   let(:role) { "teacher" }
 
   scenario "user see list of subjects" do
-    sign_in("example@gmail.com", "123456")
-
-    click_on "School 123"
-    click_on "Subjects"
+    move_to_subjects_path
 
     math_card = find(".card", text: "Math")
 
@@ -31,11 +28,8 @@ feature "List subjects" do
   context "when user with director role" do
     let(:role) { "director" }
 
-    scenario "user see list of subjects" do
-      sign_in("example@gmail.com", "123456")
-
-      click_on "School 123"
-      click_on "Subjects"
+    scenario "user see list of subjects with links" do
+      move_to_subjects_path
 
       math_card = find(".card", text: "Math")
 

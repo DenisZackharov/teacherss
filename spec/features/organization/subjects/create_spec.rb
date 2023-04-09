@@ -11,10 +11,8 @@ feature "Create subject" do
   let(:before_organization_subjects_count) { 1 }
 
   scenario "user creates subject" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_on "Add Subject"
 
     fill_in "subject_name", with: "Math"
@@ -26,10 +24,8 @@ feature "Create subject" do
   end
 
   scenario "user try to creates subject with blank name" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_on "Add Subject"
 
     fill_in "subject_name", with: ""
@@ -40,10 +36,8 @@ feature "Create subject" do
   end
 
   scenario "user try to creates subject with existed name for this organization" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_on "Add Subject"
 
     fill_in "subject_name", with: "English Language"

@@ -18,8 +18,6 @@ feature "View organization" do
   scenario "User views organization page" do
     sign_in("example@gmail.com", "123456")
 
-    expect(page).to have_content("School 123")
-
     click_on "School 123"
 
     h_1 = find("h1")
@@ -34,8 +32,6 @@ feature "View organization" do
 
     scenario "User views organization page" do
       sign_in("example@gmail.com", "123456")
-
-      expect(page).to have_content("School 123")
 
       click_on "School 123"
 

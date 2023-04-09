@@ -10,10 +10,8 @@ feature "Destroy subject" do
   let(:organization) { create(:organization, name: "School 123") }
 
   scenario "user destoyes subject" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     accept_confirm do
       click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}")
     end

@@ -11,10 +11,8 @@ feature "Update subject" do
   let(:organization) { create(:organization, name: "School 123") }
 
   scenario "user updates subject" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
     fill_in "subject_name", with: "English"
@@ -26,10 +24,8 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with blank name" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
     fill_in "subject_name", with: ""
@@ -39,10 +35,8 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with existed name for this organization" do
-    sign_in("example@gmail.com", "123456")
+    move_to_subjects_path
 
-    click_on "School 123"
-    click_on "Subjects"
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
     fill_in "subject_name", with: "Math"

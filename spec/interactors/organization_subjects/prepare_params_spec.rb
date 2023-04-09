@@ -11,8 +11,8 @@ describe OrganizationSubjects::PrepareParams do
       }
     end
 
-    let(:test_subject) { create(:subject) }
-    let(:organization) { create(:organization) }
+    let(:test_subject) { build_stubbed(:subject) }
+    let(:organization) { build_stubbed(:organization) }
 
     it { expect(executed_context.organization_subject_params).to eq(initial_context) }
   end

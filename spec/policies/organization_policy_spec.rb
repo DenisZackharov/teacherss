@@ -6,17 +6,17 @@ describe OrganizationPolicy do
   describe "#show?" do
     subject { policy.apply(:show?) }
 
-    let(:record) { create(:organization) }
+    let(:record) { build_stubbed(:organization) }
 
     context "when user from organization" do
-      let(:current_user) { create(:user, organization: record) }
+      let(:current_user) { build_stubbed(:user, organization: record) }
 
       it { is_expected.to be_truthy }
     end
 
     context "when user not from organization" do
-      let(:organization) { create(:organization) }
-      let(:current_user) { create(:user, organization: organization) }
+      let(:organization) { build_stubbed(:organization) }
+      let(:current_user) { build_stubbed(:user, organization: organization) }
 
       it { is_expected.to be_falsey }
     end

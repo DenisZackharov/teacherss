@@ -2,17 +2,17 @@ require "rails_helper"
 
 feature "Update subject" do
   before do
+    create(:user, :director, email: user_email, organization: organization)
     create(:organization_subject, organization: organization, subject: subject_1)
     create(:organization_subject, organization: organization)
   end
 
-  let!(:user) { create(:user, :director, email: Faker::Internet.email, organization: organization) }
-
+  let(:user_email) { Faker::Internet.email }
   let(:subject_1) { create(:subject, name: "English Language") }
   let(:organization) { create(:organization, name: "School 123") }
 
   scenario "user updates subject" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
@@ -25,7 +25,7 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with blank name" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
@@ -36,7 +36,7 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with existed name for this organization" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 

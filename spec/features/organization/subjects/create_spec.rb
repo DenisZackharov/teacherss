@@ -2,17 +2,17 @@ require "rails_helper"
 
 feature "Create subject" do
   before do
+    create(:user, :director, email: user_email, organization: organization)
     create(:organization_subject, organization: organization, subject: subject_1)
   end
 
-  let!(:user) { create(:user, :director, email: Faker::Internet.email, organization: organization) }
-
+  let(:user_email) { Faker::Internet.email }
   let(:subject_1) { create(:subject, name: "English Language") }
   let(:organization) { create(:organization, name: "School 123") }
   let(:before_organization_subjects_count) { 1 }
 
   scenario "user creates subject" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_on "Add Subject"
 
@@ -25,7 +25,7 @@ feature "Create subject" do
   end
 
   scenario "user try to creates subject with blank name" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_on "Add Subject"
 
@@ -37,7 +37,7 @@ feature "Create subject" do
   end
 
   scenario "user try to creates subject with existed name for this organization" do
-    move_to_subjects_path(user.email)
+    move_to_subjects_path(user_email)
 
     click_on "Add Subject"
 

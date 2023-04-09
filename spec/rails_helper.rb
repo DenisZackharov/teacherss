@@ -10,6 +10,7 @@ require "support/simplecov"
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara-screenshot/rspec"
+require "action_policy/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

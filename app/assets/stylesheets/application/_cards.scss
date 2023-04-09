@@ -1,0 +1,29 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.card {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 50px;
+  padding: 5px;
+  width: 300px;
+}
+
+.card-title {
+  font-size: 30px;
+  margin: 0 5px 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.controls {
+  column-gap: 10px;
+  display: flex;
+}

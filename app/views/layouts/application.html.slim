@@ -13,5 +13,6 @@ html
     header
       = render "items/navbar"
     main
-      = render "items/notices"
+
+      #flash = render "shared/flash"
       = yield

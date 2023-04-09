@@ -1,0 +1,10 @@
+= turbo_frame_tag "organization_content"
+  h1 Subjects
+  - if allowed_to?(:index?, with: UserPolicy)
+    .new-button
+      = link_to "Add subject", new_organization_subject_path(@organization),
+        class: "btn btn-primary", data: { turbo_frame: dom_id(subject) }
+
+  = turbo_frame_tag "new_subject"
+  .cards#cards
+    = render subjects

@@ -1,0 +1,29 @@
+$lightest-blue: rgb(217, 237, 247);
+$light-blue: rgb(188, 232, 241);
+$ocean-blue: rgb(49, 112, 143);
+
+%alert-info {
+  background-color: $lightest-blue;
+  border-color: $light-blue;
+  color: $ocean-blue;
+}
+
+.alert-notice {
+  @extend %alert-info;
+}
+
+.fade-out {
+  animation-duration: 2s;
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.exit {
+  position: absolute;
+  right: 10px;
+  top: 1px;
+}

@@ -8,14 +8,14 @@ feature "Show organization" do
       first_name: "Bilbo",
       last_name: "Baggins",
       email: "example@gmail.com",
-      organization:
+      organization: organization
     )
     create(
       :user,
       :head_teacher,
       first_name: "Gendalf",
       last_name: "White",
-      organization:
+      organization: organization
     )
   end
 

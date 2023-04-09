@@ -1,7 +1,9 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+@import 'application/cards';
+@import 'application/flash';
 @import 'application/form';
-@import 'application/layout';
 @import 'application/items';
+@import 'application/layout';
 @import 'application/tables';

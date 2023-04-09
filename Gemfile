@@ -15,7 +15,6 @@ gem "jbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
-gem "pry"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "redis", "~> 4.0"
@@ -34,6 +33,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "faker"
+  gem "pry-rails"
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-i18n", require: false

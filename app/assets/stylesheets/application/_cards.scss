@@ -2,17 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: space-between;
 }
 
 .card {
   align-items: center;
   display: flex;
   flex-direction: row;
+  height: 70px;
   justify-content: space-between;
-  max-height: 50px;
   padding: 5px;
-  width: 300px;
+  width: calc((100% - 32px) / 3);
 }
 
 .card-title {
@@ -26,4 +25,5 @@
 .controls {
   column-gap: 10px;
   display: flex;
+  font-size: 24px;
 }

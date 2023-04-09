@@ -2,11 +2,11 @@ require "rails_helper"
 
 feature "List subjects" do
   before do
-    create(:user, email: "example@gmail.com", organization: organization, role: role)
     create(:organization_subject, subject: subject_1, organization: organization)
     create(:organization_subject, subject: subject_2, organization: organization)
   end
 
+  let!(:user) { create(:user, :director, email: Faker::Internet.email, organization: organization, role: role) }
   let!(:subject_1) { create(:subject, name: "Math") }
   let!(:subject_2) { create(:subject, name: "English Language") }
 
@@ -14,7 +14,7 @@ feature "List subjects" do
   let(:role) { "teacher" }
 
   scenario "user see list of subjects" do
-    move_to_subjects_path
+    move_to_subjects_path(user.email)
 
     math_card = find(".card", text: "Math")
 
@@ -29,7 +29,7 @@ feature "List subjects" do
     let(:role) { "director" }
 
     scenario "user see list of subjects with links" do
-      move_to_subjects_path
+      move_to_subjects_path(user.email)
 
       math_card = find(".card", text: "Math")
 

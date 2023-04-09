@@ -1,4 +1,4 @@
 - if @subject
-  = turbo_stream.update subject,
+  = turbo_stream.replace subject,
     render(partial: "subject", object: @subject)
 = prepend_flash

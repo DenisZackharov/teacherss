@@ -2,3 +2,4 @@ en:
   errors:
     messages:
       record_invalid: "%{model} invalid"
+      unique_subject: "already exists for this organization"

@@ -25,6 +25,11 @@ Metrics/BlockLength:
   Exclude:
     - db/seeds/**/*.rb
 
+Naming/VariableNumber:
+  Exclude:
+    - config/initializers/*.rb
+  EnforcedStyle: snake_case
+
 Style/Documentation:
   Enabled: false
 
@@ -53,4 +58,3 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10
-

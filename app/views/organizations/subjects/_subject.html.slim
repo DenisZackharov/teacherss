@@ -3,11 +3,9 @@
     .card-title = subject.name
     - if allowed_to?(:update?, with: SubjectPolicy)
       .controls
-        .edit-button
-          = link_to edit_organization_subject_path(@organization, subject) do
-            i.bi.bi-pencil
-        .delete-button
-          = link_to organization_subject_path(@organization, subject),
-            data: { turbo_method: :delete,
-            turbo_confirm: I18n.t("confirm_message") } do
-            i.bi.bi-trash
+        = link_to edit_organization_subject_path(@organization, subject) do
+          i.bi.bi-pencil
+        = link_to organization_subject_path(@organization, subject),
+          data: { turbo_method: :delete,
+          turbo_confirm: I18n.t("confirm_message") } do
+          i.bi.bi-trash

@@ -6,7 +6,7 @@ module FlashPreparer
     if result.success?
       instance_variable_set("@#{record.class.name.underscore}", record)
 
-      flash.now[:notice] = I18n.t("flash.#{action}", model: model_name(subject).titleize)
+      flash.now[:notice] = I18n.t("flash.#{action}", model: model_name(record).titleize)
     else
       flash.now[:danger] = error_message(result)
     end

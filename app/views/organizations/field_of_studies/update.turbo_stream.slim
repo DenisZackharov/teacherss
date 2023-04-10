@@ -1,0 +1,4 @@
+- if @field_of_study
+  = turbo_stream.replace field_of_study,
+    render(partial: "field_of_study", object: @field_of_study)
+= prepend_flash

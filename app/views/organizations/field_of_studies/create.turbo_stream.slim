@@ -1,0 +1,4 @@
+- if @field_of_study
+  = turbo_stream.update field_of_study, ""
+  = turbo_stream.prepend "cards", render(@field_of_study)
+= prepend_flash

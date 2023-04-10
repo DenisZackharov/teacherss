@@ -2,10 +2,11 @@ module FlashPreparer
   include ErrorPreparer
   include ModelNameHelper
 
-  def flash_message(result, action)
+  def flash_message(result, action, record)
     if result.success?
-      @subject = result.subject
-      flash.now[:notice] = I18n.t("flash.#{action}", model: model_name(subject))
+      instance_variable_set("@#{record.class.name.underscore}", record)
+
+      flash.now[:notice] = I18n.t("flash.#{action}", model: model_name(subject).titleize)
     else
       flash.now[:danger] = error_message(result)
     end

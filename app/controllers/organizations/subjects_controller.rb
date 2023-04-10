@@ -15,28 +15,46 @@ module Organizations
     def edit; end
 
     def create
-      create_subject = ::Subjects::Create.call(organization: @organization, subject_params: subject_params)
+      subject = create_subject.subject
 
-      flash_message(create_subject, :create)
+      flash_message(create_subject, :create, subject)
     end
 
     def update
-      update_subject = ::Subjects::Update.call(
+      subject = update_subject.subject
+
+      flash_message(update_subject, :update, subject)
+    end
+
+    def destroy
+      subject = destroy_subject.subject
+
+      flash_message(destroy_subject, :destroy, subject)
+    end
+
+    private
+
+    def create_subject
+      @create_subject ||= ::Subjects::Create.call(
+        organization: @organization,
+        subject_params: subject_params
+      )
+    end
+
+    def update_subject
+      @update_subject ||= ::Subjects::Update.call(
         subject: subject,
         organization: @organization,
         subject_params: subject_params
       )
-
-      flash_message(update_subject, :update)
     end
 
-    def destroy
-      destroy_subject = ::Subjects::Destroy.call(subject: subject, organization: @organization)
-
-      flash_message(destroy_subject, :destroy)
+    def destroy_subject
+      @destroy_subject ||= ::Subjects::Destroy.call(
+        subject: subject,
+        organization: @organization
+      )
     end
-
-    private
 
     def fetch_organization
       @organization = Organization.find(params[:organization_id])

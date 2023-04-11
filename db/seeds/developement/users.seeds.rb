@@ -1,5 +1,6 @@
 after "developement:organizations" do
   puts "Creating users... "
+  User.destroy_all
 
   organization = Organization.first
 
@@ -35,6 +36,16 @@ after "developement:organizations" do
     user.password = "123456"
     user.minimum_working_hours_per_week = 5
     user.maximum_working_hours_per_week = 10
+    user.organization = organization
+  end
+
+  User.find_or_create_by(email: "teacher2@example.com") do |user|
+    user.first_name = "Legolas"
+    user.last_name = "Greenleaf"
+    user.role = "teacher"
+    user.password = "123456"
+    user.minimum_working_hours_per_week = 10
+    user.maximum_working_hours_per_week = 20
     user.organization = organization
   end
 

@@ -1,4 +1,5 @@
 puts "Creating subjects... "
+Subject.destroy_all
 
 Subject.find_or_create_by(name: "Math")
 Subject.find_or_create_by(name: "History")

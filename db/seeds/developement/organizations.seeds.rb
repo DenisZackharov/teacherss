@@ -1,5 +1,6 @@
 after "developement:subjects", "developement:field_of_studies" do
   puts "Creating organizations... "
+  Organization.destroy_all
 
   subjects = Subject.all
   field_of_studies = FieldOfStudy.all

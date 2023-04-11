@@ -1,4 +1,5 @@
 puts "Creating field of studies... "
+FieldOfStudy.destroy_all
 
 FieldOfStudy.find_or_create_by(name: "Physical and mathematical")
 FieldOfStudy.find_or_create_by(name: "Based")

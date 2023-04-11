@@ -16,7 +16,7 @@ describe OrganizationPolicy do
 
     context "when user not from organization, but director" do
       let(:organization) { create(:organization) }
-      let(:current_user) { create(:user, :director, organization:) }
+      let(:current_user) { create(:user, :director, organization: organization) }
 
       it { is_expected.to be_falsey }
     end

@@ -7,7 +7,7 @@ feature "Sign In" do
     create(
       :user,
       :director,
-      organization:,
+      organization: organization,
       email: "example@gmail.com",
       password: "123456",
       first_name: "Bilbo",

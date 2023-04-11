@@ -15,7 +15,7 @@ feature "List subjects" do
   let(:role) { "teacher" }
 
   scenario "user see list of subjects" do
-    move_to_subjects_path(user_email)
+    user_move_to(user_email, "Subjects")
 
     math_card = find(".card", text: "Math")
 
@@ -30,7 +30,7 @@ feature "List subjects" do
     let(:role) { "director" }
 
     scenario "user see list of subjects with links" do
-      move_to_subjects_path(user_email)
+      user_move_to(user_email, "Subjects")
 
       math_card = find(".card", text: "Math")
 

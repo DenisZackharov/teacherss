@@ -25,6 +25,7 @@ feature "View organization" do
     expect(h_1).to have_content("School 123")
     expect(page).not_to have_content("Staff")
     expect(page).to have_content("Subjects")
+    expect(page).to have_content("Field Of Studies")
   end
 
   context "when user has director role" do
@@ -40,6 +41,7 @@ feature "View organization" do
       expect(h_1).to have_content("School 123")
       expect(page).to have_content("Staff")
       expect(page).to have_content("Subjects")
+      expect(page).to have_content("Field Of Studies")
     end
   end
 end

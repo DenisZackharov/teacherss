@@ -8,12 +8,6 @@ module Organizations
 
     before_action :authorize_subject, only: %i[create update destroy]
 
-    def index; end
-
-    def new; end
-
-    def edit; end
-
     def create
       subject = create_subject.subject
 

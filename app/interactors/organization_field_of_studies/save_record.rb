@@ -1,7 +1,7 @@
 module OrganizationFieldOfStudies
   class SaveRecord
     include Interactor
-    include ModelNameHelper
+    include RecordNameConverter
 
     delegate :organization_field_of_study, :organization_field_of_study_params, to: :context
 
@@ -20,7 +20,7 @@ module OrganizationFieldOfStudies
     def error_data
       {
         message: I18n.t("errors.messages.record_invalid", model: model_name(organization_field_of_study)),
-        detail: organization_field_of_study.errors.to_a
+        detail: organization_field_of_study.errors.full_messages
       }
     end
   end

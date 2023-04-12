@@ -1,7 +1,7 @@
 module FieldOfStudies
   class FindOrCreateRecord
     include Interactor
-    include ModelNameHelper
+    include RecordNameConverter
 
     delegate :field_of_study_params, to: :context
 
@@ -20,7 +20,7 @@ module FieldOfStudies
     def error_data
       {
         message: I18n.t("errors.messages.record_invalid", model: model_name(field_of_study)),
-        detail: field_of_study.errors.to_a
+        detail: field_of_study.errors.full_messages
       }
     end
   end

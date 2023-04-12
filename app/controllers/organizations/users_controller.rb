@@ -3,8 +3,6 @@ module Organizations
     before_action :authorize!
     expose :users, -> { UserDecorator.decorate_collection(fetch_users) }
 
-    def index; end
-
     private
 
     def fetch_users

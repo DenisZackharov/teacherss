@@ -1,17 +1,17 @@
 puts "Creating subjects... "
 Subject.destroy_all
 
-Subject.find_or_create_by(name: "Math")
-Subject.find_or_create_by(name: "History")
-Subject.find_or_create_by(name: "English Language")
-Subject.find_or_create_by(name: "Russian Language")
-Subject.find_or_create_by(name: "Physics")
-Subject.find_or_create_by(name: "Chemistry")
-Subject.find_or_create_by(name: "Biology")
-Subject.find_or_create_by(name: "Informatics")
-Subject.find_or_create_by(name: "Geography")
-Subject.find_or_create_by(name: "Literature")
-Subject.find_or_create_by(name: "Social Science")
-Subject.find_or_create_by(name: "Physical Education")
+Subject.create!(name: "Math")
+Subject.create!(name: "History")
+Subject.create!(name: "English Language")
+Subject.create!(name: "Russian Language")
+Subject.create!(name: "Physics")
+Subject.create!(name: "Chemistry")
+Subject.create!(name: "Biology")
+Subject.create!(name: "Informatics")
+Subject.create!(name: "Geography")
+Subject.create!(name: "Literature")
+Subject.create!(name: "Social Science")
+Subject.create!(name: "Physical Education")
 
 puts "Done!"

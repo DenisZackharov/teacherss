@@ -1,9 +1,9 @@
 puts "Creating field of studies... "
 FieldOfStudy.destroy_all
 
-FieldOfStudy.find_or_create_by(name: "Physical and mathematical")
-FieldOfStudy.find_or_create_by(name: "Based")
-FieldOfStudy.find_or_create_by(name: "Humanitarian")
-FieldOfStudy.find_or_create_by(name: "Chemical and biological")
+FieldOfStudy.create!(name: "Physical and mathematical")
+FieldOfStudy.create!(name: "Based")
+FieldOfStudy.create!(name: "Humanitarian")
+FieldOfStudy.create!(name: "Chemical and biological")
 
 puts "Done!"

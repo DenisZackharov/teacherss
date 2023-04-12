@@ -3,9 +3,9 @@ module Organizations
     include FlashPreparer
 
     expose :subject
-    expose :subjects, -> { @organization.subjects.order(updated_at: :desc) }
+    expose :organization, -> { Organization.find(params[:organization_id]) }
+    expose :subjects, -> { organization.subjects.order(updated_at: :desc) }
 
-    before_action :fetch_organization, only: %i[index new create edit update destroy]
     before_action :authorize_subject, only: %i[create update destroy]
 
     def index; end
@@ -36,7 +36,7 @@ module Organizations
 
     def create_subject
       @create_subject ||= ::Subjects::Create.call(
-        organization: @organization,
+        organization: organization,
         subject_params: subject_params
       )
     end
@@ -44,7 +44,7 @@ module Organizations
     def update_subject
       @update_subject ||= ::Subjects::Update.call(
         subject: subject,
-        organization: @organization,
+        organization: organization,
         subject_params: subject_params
       )
     end
@@ -52,12 +52,8 @@ module Organizations
     def destroy_subject
       @destroy_subject ||= ::Subjects::Destroy.call(
         subject: subject,
-        organization: @organization
+        organization: organization
       )
-    end
-
-    def fetch_organization
-      @organization = Organization.find(params[:organization_id])
     end
 
     def subject_params

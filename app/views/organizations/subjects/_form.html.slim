@@ -1,6 +1,6 @@
 = turbo_frame_tag subject
-  = simple_form_for [@organization, subject],
-    html: { class: "card-form" } do |f|
+  = simple_form_for [organization, subject],
+    html: { class: "subject-form" } do |f|
     = f.input :name
     .submit
       = f.button :submit, class: "btn btn-success"

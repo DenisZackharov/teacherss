@@ -2,7 +2,7 @@
   h1 Subjects
   - if allowed_to?(:index?, with: UserPolicy)
     .new-button
-      = link_to "Add Subject", new_organization_subject_path(@organization),
+      = link_to "Add Subject", new_organization_subject_path(organization),
         class: "btn btn-primary", data: { turbo_frame: dom_id(subject) }
 
   = turbo_frame_tag "new_subject"

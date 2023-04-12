@@ -5,6 +5,6 @@ module ErrorPreparer
     message = result.error_data[:message]
     details = result.error_data[:detail].join(", ")
 
-    "#{message}: #{details}"
+    [message, details].compact.join(": ")
   end
 end

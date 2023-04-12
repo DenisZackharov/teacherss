@@ -1,9 +1,7 @@
 module Organizations
   class UsersController < ApplicationController
-    before_action :authorize!, only: %i[index]
+    before_action :authorize!
     expose :users, -> { UserDecorator.decorate_collection(fetch_users) }
-
-    def index; end
 
     private
 

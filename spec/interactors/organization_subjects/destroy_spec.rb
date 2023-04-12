@@ -14,12 +14,20 @@ describe OrganizationSubjects::Destroy do
     let(:test_subject) { create(:subject) }
     let(:organization) { create(:organization) }
 
-    before do
-      create(:organization_subject, organization: organization, subject: test_subject)
+    context "when organization subject exist" do
+      before do
+        create(:organization_subject, organization: organization, subject: test_subject)
+      end
+
+      it "destroyes subject" do
+        expect { interactor.run }.to change(OrganizationSubject, :count).from(1).to(0)
+      end
     end
 
-    it "destroyes subject" do
-      expect { interactor.run }.to change(OrganizationSubject, :count).from(1).to(0)
+    context "when organizarion subject doesn't exist" do
+      it "raises a RecordNotFound error" do
+        expect { interactor.run }.to raise_exception(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end

@@ -44,7 +44,7 @@ feature "Create subject" do
     fill_in "subject_name", with: "English Language"
     click_on "Create"
 
-    expect(page).to have_content("OrganizationSubject invalid: Subject already exists for this organization")
+    expect(page).to have_content("Organization Subject invalid: Subject already exists for this organization")
     expect(OrganizationSubject.count).to eq(before_organization_subjects_count)
   end
 end

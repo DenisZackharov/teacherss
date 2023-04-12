@@ -44,7 +44,7 @@ describe OrganizationSubjects::SaveRecord do
       let(:organization_subject_params) { { organization: nil, subject: nil } }
       let(:error_data) do
         {
-          message: "OrganizationSubject invalid",
+          message: "Organization Subject invalid",
           detail: ["Organization must exist", "Subject must exist"]
         }
       end

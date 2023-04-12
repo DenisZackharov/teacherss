@@ -43,6 +43,6 @@ feature "Update subject" do
     fill_in "subject_name", with: "Math"
     click_on "Update"
 
-    expect(page).to have_content("OrganizationSubject invalid: Subject already exists for this organization")
+    expect(page).to have_content("Organization Subject invalid: Subject already exists for this organization")
   end
 end

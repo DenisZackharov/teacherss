@@ -1,7 +1,7 @@
 module OrganizationSubjects
   class SaveRecord
     include Interactor
-    include ModelNameHelper
+    include RecordNameConverter
 
     delegate :organization_subject, :organization_subject_params, to: :context
 
@@ -16,7 +16,7 @@ module OrganizationSubjects
     def error_data
       {
         message: I18n.t("errors.messages.record_invalid", model: model_name(organization_subject)),
-        detail: organization_subject.errors.to_a
+        detail: organization_subject.errors.full_messages
       }
     end
   end

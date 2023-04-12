@@ -1,7 +1,7 @@
 module Subjects
   class FindOrCreateRecord
     include Interactor
-    include ModelNameHelper
+    include RecordNameConverter
 
     delegate :subject_params, to: :context
 
@@ -20,7 +20,7 @@ module Subjects
     def error_data
       {
         message: I18n.t("errors.messages.record_invalid", model: model_name(subject)),
-        detail: subject.errors.to_a
+        detail: subject.errors.full_messages
       }
     end
   end

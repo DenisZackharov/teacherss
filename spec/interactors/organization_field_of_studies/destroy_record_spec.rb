@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe OrganizationFieldOfStudies::Destroy do
+describe OrganizationFieldOfStudies::DestroyRecord do
   include_context "with interactor"
 
   describe ".call" do

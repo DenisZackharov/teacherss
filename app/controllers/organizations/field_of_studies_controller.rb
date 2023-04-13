@@ -3,7 +3,7 @@ module Organizations
     include FlashPreparer
 
     expose :field_of_study
-    expose :organization, -> { Organization.find(params[:organization_id]) }
+    expose :organization, id: -> { params[:organization_id] }
     expose :field_of_studies, -> { organization.field_of_studies.order(updated_at: :desc) }
 
     before_action :authorize_field_of_study, only: %i[create update destroy]

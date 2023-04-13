@@ -3,7 +3,7 @@ module FieldOfStudies
     include Interactor::Organizer
     include TransactionalInteractor
 
-    organize OrganizationFieldOfStudies::Destroy,
+    organize OrganizationFieldOfStudies::DestroyRecord,
              FieldOfStudies::FindOrCreateRecord,
              OrganizationFieldOfStudies::PrepareParams,
              OrganizationFieldOfStudies::SaveRecord

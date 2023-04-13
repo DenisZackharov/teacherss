@@ -1,5 +1,5 @@
 module OrganizationFieldOfStudies
-  class Destroy
+  class DestroyRecord
     include Interactor
 
     delegate :field_of_study, :organization, to: :context

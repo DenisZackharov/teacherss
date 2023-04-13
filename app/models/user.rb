@@ -4,6 +4,7 @@ class User < ApplicationRecord
   MAX_HOURS_PER_WEEK = 35
   ROLES = %w[super_admin teacher head_teacher director].freeze
   EMPLOYEES_WITH_HOURS = %w[teacher head_teacher].freeze
+  MANAGE_ORGANIZATION_ROLES = %w[director head_teacher].freeze
 
   # TODO: connect :confirmable when email sender will work
   devise :database_authenticatable, :registerable,

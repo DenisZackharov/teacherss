@@ -1,5 +1,5 @@
 class OrganizationPolicy < ApplicationPolicy
   def show?
-    user.organization == record && user.director?
+    user.organization.id == record.id
   end
 end

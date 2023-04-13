@@ -10,3 +10,22 @@ abbr {
   font-size: small;
   font-style: italic;
 }
+
+.submit {
+  margin-top: 10px;
+}
+
+.form-control {
+  width: auto;
+}
+
+.new-button {
+  margin-bottom: 10px;
+}
+
+.subject-form {
+  align-items: flex-end;
+  column-gap: 5px;
+  display: flex;
+  margin-bottom: 10px;
+}

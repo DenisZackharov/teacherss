@@ -18,6 +18,9 @@ I18n/RailsI18n/DecorateString:
   Exclude:
     - spec/**/*.rb
 
+I18n/RailsI18n/DecorateStringFormattingUsingInterpolation:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - db/seeds/**/*.rb
@@ -25,6 +28,11 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/*.rb
+
+Naming/VariableNumber:
+  Exclude:
+    - config/initializers/*.rb
+  EnforcedStyle: snake_case
 
 Style/Documentation:
   Enabled: false
@@ -51,3 +59,6 @@ RSpec/ExampleLength:
 
 RSpec/MultipleExpectations:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

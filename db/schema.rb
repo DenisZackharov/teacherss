@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_222713) do
     t.bigint "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id", "subject_id"], name: "index_organization_subjects_on_organization_id_and_subject_id", unique: true
     t.index ["organization_id"], name: "index_organization_subjects_on_organization_id"
     t.index ["subject_id"], name: "index_organization_subjects_on_subject_id"
   end

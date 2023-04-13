@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :organizations, only: %i[show] do
     resources :users, only: %i[index], module: :organizations
+    resources :subjects, only: %i[index new create edit update destroy], module: :organizations
   end
 end

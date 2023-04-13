@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe OrganizationSubjects::Destroy do
+describe OrganizationSubjects::DestroyRecord do
   include_context "with interactor"
 
   describe ".call" do

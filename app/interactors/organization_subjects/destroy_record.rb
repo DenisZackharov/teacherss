@@ -1,5 +1,5 @@
 module OrganizationSubjects
-  class Destroy
+  class DestroyRecord
     include Interactor
 
     delegate :subject, :organization, to: :context

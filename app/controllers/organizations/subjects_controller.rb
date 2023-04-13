@@ -3,16 +3,10 @@ module Organizations
     include FlashPreparer
 
     expose :subject
-    expose :organization, -> { Organization.find(params[:organization_id]) }
+    expose :organization, id: -> { params[:organization_id] }
     expose :subjects, -> { organization.subjects.order(updated_at: :desc) }
 
     before_action :authorize_subject, only: %i[create update destroy]
-
-    def index; end
-
-    def new; end
-
-    def edit; end
 
     def create
       subject = create_subject.subject

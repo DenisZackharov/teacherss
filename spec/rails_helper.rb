@@ -10,6 +10,7 @@ require "support/simplecov"
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara-screenshot/rspec"
+require "action_policy/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -22,6 +23,7 @@ end
 
 RSpec.configure do |config|
   config.include UserHelper
+  config.include SubjectHelper
 
   config.fixture_path = Rails.root.join("/spec/fixtures")
   config.use_transactional_fixtures = true

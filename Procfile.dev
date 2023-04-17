@@ -1,4 +1,3 @@
-web: bundle exec rails server -p $PORT -e production
-build: bin/rails css:build
+web: bin/rails server -p $PORT
 css: yarn build:css --watch
 js: yarn build --watch

@@ -1,4 +1,3 @@
 web: bundle exec rails server -p $PORT -e production
-yarn: yarn install
 css: yarn build:css --watch
 js: yarn build --watch

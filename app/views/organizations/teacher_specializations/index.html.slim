@@ -1,0 +1,30 @@
+= turbo_frame_tag "organization_content"
+  h1 Teacher Specializations
+  = simple_form_for :search,
+    url: organization_teacher_specializations_path(organization),
+    method: :get,
+    html: { class: "subject-form" },
+    defaults: { required: false } do |f|
+    = f.input :user_id, collection: teachers, label_method: :second, value_method: :first, selected: (params[:search][:user_id] if params[:search])
+    = f.input :subject_id, collection: subjects, selected: (params[:search][:subject_id] if params[:search])
+    = f.input :field_of_study_id, collection: field_of_studies, selected: (params[:search][:field_of_study_id] if params[:search])
+    = f.input :degree, selected: (params[:search][:degree] if params[:search])
+    .submit
+      = f.button :submit, value: "▶", class: "btn btn-success"
+    - if params[:search]
+      = link_to "Reset",
+        organization_teacher_specializations_path(organization, search: nil),
+        class: "btn btn-danger"
+
+  table
+    tr
+      th Teacher
+      th Subject
+      th Field Of Study
+      th Degree
+    - teacher_specializations.each do |teacher_specialization|
+      tr
+        td = teacher_specialization.user.first_name
+        td = teacher_specialization.subject.name
+        td = teacher_specialization.field_of_study.name
+        td = teacher_specialization.degree

@@ -10,4 +10,8 @@ nav.navbar.navbar-expand-lg.bg-light.justify-content-between.px-4
               organization_subjects_path(organization),
               data: { turbo: true, turbo_frame: "organization_content" },
               class: "nav-link"
+    = link_to "Teacher Specializations",
+              organization_teacher_specializations_path(organization),
+              data: { turbo: true, turbo_frame: "organization_content" },
+              class: "nav-link"
 = turbo_frame_tag "organization_content"

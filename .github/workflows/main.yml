@@ -75,10 +75,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: Deploy to heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with: 
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+      - name: Deploy to render
+        uses: bounceapp/render-action@0.6.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          retries: 20
+          wait: 16000
+          sleep: 30000
 ...

@@ -69,12 +69,11 @@ jobs:
         run: bin/quality
 
   Deploy:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs: Test
     runs-on: ubuntu-latest
 
     steps:
-
-      
       - uses: actions/checkout@master
       - name: Deploy to render
         uses: JorgeLNJunior/render-deploy@v1.3.2

@@ -69,18 +69,16 @@ jobs:
         run: bin/quality
 
   Deploy:
-    if: ${{ github.event_name == 'push'  && github.ref == 'refs/heads/master' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs: Test
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@master
       - name: Deploy to render
-        uses: bounceapp/render-action@0.6.0
+        uses: JorgeLNJunior/render-deploy@v1.3.2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          service-id: ${{ secrets.RENDER_SERVICE_ID }}
-          retries: 20
-          wait: 16000
-          sleep: 30000
+          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.RENDER_API_KEY }}
+          clear_cache: false
 ...

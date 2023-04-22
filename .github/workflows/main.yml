@@ -69,7 +69,6 @@ jobs:
         run: bin/quality
 
   Deploy:
-    if: ${{ github.event_name == 'push' }}
     needs: Test
     runs-on: ubuntu-latest
 

@@ -2,16 +2,12 @@ module OrganizationSubjects
   class DestroyRecord
     include Interactor
 
-    delegate :subject, :organization, to: :context
+    delegate :organization_subject, to: :context
 
     def call
       organization_subject.destroy
-    end
 
-    private
-
-    def organization_subject
-      OrganizationSubject.find_by!(subject: subject, organization: organization)
+      context.organization_subject = nil
     end
   end
 end

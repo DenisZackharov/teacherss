@@ -2,16 +2,12 @@ module OrganizationFieldOfStudies
   class DestroyRecord
     include Interactor
 
-    delegate :field_of_study, :organization, to: :context
+    delegate :organization_field_of_study, to: :context
 
     def call
       organization_field_of_study.destroy
-    end
 
-    private
-
-    def organization_field_of_study
-      OrganizationFieldOfStudy.find_by!(field_of_study: field_of_study, organization: organization)
+      context.organization_field_of_study = nil
     end
   end
 end

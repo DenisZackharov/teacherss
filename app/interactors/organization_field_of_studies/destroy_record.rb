@@ -7,7 +7,7 @@ module OrganizationFieldOfStudies
     def call
       organization_field_of_study.destroy
 
-      context.organization_field_of_study = nil
+      context.delete_field(:organization_field_of_study)
     end
   end
 end

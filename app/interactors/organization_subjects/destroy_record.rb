@@ -7,7 +7,7 @@ module OrganizationSubjects
     def call
       organization_subject.destroy
 
-      context.organization_subject = nil
+      context.delete_field(:organization_subject)
     end
   end
 end

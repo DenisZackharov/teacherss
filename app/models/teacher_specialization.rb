@@ -1,4 +1,6 @@
 class TeacherSpecialization < ApplicationRecord
+  extend Pagy::Searchkick
+
   searchkick filterable: %i[user_id subject field_of_study degree]
 
   belongs_to :subject

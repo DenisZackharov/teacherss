@@ -4,11 +4,11 @@
     url: organization_teacher_specializations_path(organization),
     method: :get,
     html: { class: "subject-form" },
-    defaults: { required: false } do |f|
-    = f.input :user_id, collection: teachers, label_method: :second, value_method: :first, selected: (params[:search][:user_id] if params[:search])
-    = f.input :subject_id, collection: subjects, selected: (params[:search][:subject_id] if params[:search])
-    = f.input :field_of_study_id, collection: field_of_studies, selected: (params[:search][:field_of_study_id] if params[:search])
-    = f.input :degree, selected: (params[:search][:degree] if params[:search])
+    defaults: { required: false, include_blank: true } do |f|
+    = f.input :user_id, collection: teachers, label_method: :second, value_method: :first, selected: params.dig(:search, :user_id)
+    = f.input :subject_id, collection: subjects, selected: params.dig(:search, :subject_id)
+    = f.input :field_of_study_id, collection: field_of_studies, selected: params.dig(:search, :field_of_study_id)
+    = f.input :degree, selected: params.dig(:search, :degree)
     .submit
       = f.button :submit, value: "▶", class: "btn btn-success"
     - if params[:search]
@@ -22,9 +22,13 @@
       th Subject
       th Field Of Study
       th Degree
+      th
     - teacher_specializations.each do |teacher_specialization|
       tr
         td = teacher_specialization.user.first_name
         td = teacher_specialization.subject.name
         td = teacher_specialization.field_of_study.name
         td = teacher_specialization.degree
+        td = link_to "Edit", edit_organization_teacher_specialization_path(organization, teacher_specialization)
+
+  ==< pagy_bootstrap_nav(@pagy)

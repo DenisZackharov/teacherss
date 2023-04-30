@@ -1,0 +1,11 @@
+= turbo_frame_tag field_of_study, class: "card"
+  .card-title = field_of_study.name
+  - if allowed_to?(:update?, with: FieldOfStudyPolicy)
+    .controls
+      = link_to edit_organization_field_of_study_path(organization, \
+        field_of_study) do
+        i.bi.bi-pencil
+      = link_to organization_field_of_study_path(organization, field_of_study),
+        data: { turbo_method: :delete,
+        turbo_confirm: I18n.t("confirm_message") } do
+        i.bi.bi-trash

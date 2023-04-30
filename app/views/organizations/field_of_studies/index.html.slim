@@ -1,0 +1,11 @@
+= turbo_frame_tag "organization_content"
+  h1 Field Of Study
+  - if allowed_to?(:index?, with: UserPolicy)
+    .new-button
+      = link_to "Add Field Of Study",
+        new_organization_field_of_study_path(organization),
+        class: "btn btn-primary", data: { turbo_frame: dom_id(field_of_study) }
+
+  = turbo_frame_tag "new_field_of_study"
+  .cards#cards
+    = render field_of_studies

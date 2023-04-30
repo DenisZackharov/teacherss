@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_222713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["field_of_study_id"], name: "index_organization_field_of_studies_on_field_of_study_id"
+    t.index ["organization_id", "field_of_study_id"], name: "index_on_organization_id_and_field_of_study_id", unique: true
     t.index ["organization_id"], name: "index_organization_field_of_studies_on_organization_id"
   end
 

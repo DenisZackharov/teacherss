@@ -12,7 +12,7 @@ feature "Update subject" do
   let(:organization) { create(:organization, name: "School 123") }
 
   scenario "user updates subject" do
-    move_to_subjects_path(user_email)
+    user_move_to(user_email, "Subjects")
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
@@ -25,7 +25,7 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with blank name" do
-    move_to_subjects_path(user_email)
+    user_move_to(user_email, "Subjects")
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 
@@ -36,7 +36,7 @@ feature "Update subject" do
   end
 
   scenario "user try to updates subject with existed name for this organization" do
-    move_to_subjects_path(user_email)
+    user_move_to(user_email, "Subjects")
 
     click_link(href: "/organizations/#{organization.id}/subjects/#{subject_1.id}/edit")
 

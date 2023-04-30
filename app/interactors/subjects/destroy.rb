@@ -3,6 +3,7 @@ module Subjects
     include Interactor::Organizer
     include TransactionalInteractor
 
-    organize OrganizationSubjects::DestroyRecord
+    organize OrganizationSubjects::FindRecord,
+             OrganizationSubjects::DestroyRecord
   end
 end

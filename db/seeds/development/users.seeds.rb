@@ -1,4 +1,4 @@
-after "developement:organizations" do
+after "development:organizations" do
   puts "Creating users... "
   User.destroy_all
 

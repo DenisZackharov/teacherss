@@ -1,4 +1,4 @@
-after "developement:subjects", "developement:field_of_studies" do
+after "development:subjects", "development:field_of_studies" do
   puts "Creating organizations... "
   Organization.destroy_all
 

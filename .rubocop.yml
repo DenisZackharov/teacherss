@@ -10,6 +10,9 @@ AllCops:
   NewCops: enable
   SuggestExtensions: false
 
+Rails/DynamicFindBy:
+  Enabled: false
+
 I18n/GetText/DecorateString:
   Exclude:
     - spec/**/*.rb

@@ -1,4 +1,4 @@
-after "developement:subjects", "developement:field_of_studies", "developement:users" do
+after "development:subjects", "development:field_of_studies", "development:users" do
   puts "Creating teacher specializations... "
   TeacherSpecialization.destroy_all
 

@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   belongs_to :organization, optional: true
 
+  has_many :teacher_specializations, dependent: :destroy
+
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: { scope: :organization }
   validates :minimum_working_hours_per_week, :maximum_working_hours_per_week,

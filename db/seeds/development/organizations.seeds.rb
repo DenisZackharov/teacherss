@@ -1,10 +1,11 @@
-after "developement:subjects", "developement:field_of_studies" do
+after "development:subjects", "development:field_of_studies" do
   puts "Creating organizations... "
+  Organization.destroy_all
 
   subjects = Subject.all
   field_of_studies = FieldOfStudy.all
 
-  Organization.find_or_create_by(name: "School 13") do |organization|
+  Organization.create!(name: "School 13") do |organization|
     organization.kind = "school"
     organization.subdomain = "school_13"
     organization.subjects = subjects

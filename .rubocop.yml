@@ -10,6 +10,9 @@ AllCops:
   NewCops: enable
   SuggestExtensions: false
 
+Rails/DynamicFindBy:
+  Enabled: false
+
 I18n/GetText/DecorateString:
   Exclude:
     - spec/**/*.rb
@@ -24,6 +27,10 @@ I18n/RailsI18n/DecorateStringFormattingUsingInterpolation:
 Metrics/BlockLength:
   Exclude:
     - db/seeds/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*.rb
 
 Naming/VariableNumber:
   Exclude:

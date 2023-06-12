@@ -9,6 +9,10 @@ FactoryBot.define do
     maximum_working_hours_per_week { 10 }
     organization
 
+    trait :teacher do
+      role { "teacher" }
+    end
+
     trait :head_teacher do
       role { "head_teacher" }
     end

@@ -21,14 +21,12 @@
       th = sort_link(search, :subject_id, 'Subject', default_order: :asc, class: 'sort-link')
       th = sort_link(search, :field_of_study_id, 'Field Of Study', default_order: :asc, class: 'sort-link')
       th = sort_link(search, :degree, 'Degree', default_order: :asc, class: 'sort-link')
-      th
     - teacher_specializations.each do |teacher_specialization|
       tr
-        td = teacher_specialization.user.last_name_and_initials
+        td = teacher_specialization.user.last_name_with_initials
         td = teacher_specialization.subject.name
         td = teacher_specialization.field_of_study.name
         td = teacher_specialization.degree
-        td = link_to "Edit", edit_organization_teacher_specialization_path(organization, teacher_specialization)
 
   hr
   ==< pagy_bootstrap_nav(paginate)

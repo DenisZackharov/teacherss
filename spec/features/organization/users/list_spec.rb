@@ -22,15 +22,7 @@ feature "List users" do
   let(:organization) { create(:organization, name: "School 123") }
 
   scenario "User views staff table" do
-    sign_in("example@gmail.com", "123456")
-
-    expect(page).to have_content("School 123")
-
-    click_on "School 123"
-
-    expect(page).to have_link("Staff", href: "/organizations/#{organization.id}/users")
-
-    click_on "Staff"
+    user_move_to("example@gmail.com", "Staff")
 
     table = find("table")
 

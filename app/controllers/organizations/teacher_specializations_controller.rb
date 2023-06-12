@@ -1,13 +1,13 @@
 module Organizations
   class TeacherSpecializationsController < ApplicationController
-    include FlashPreparer
+    before_action :authorize!
 
     expose :teacher_specialization
     expose :subjects, from: :organization
     expose :field_of_studies, from: :organization
     expose :organization, id: -> { params[:organization_id] }
     expose :teacher_specializations, -> { teacher_specializations }
-    expose :teachers, -> { UserDecorator.decorate_collection(teacher_users).map(&:value_with_id) }
+    expose :teachers, -> { teachers_names_with_ids }
     expose :paginate, -> { paginating.first }
     expose :search, -> { search }
 
@@ -17,8 +17,14 @@ module Organizations
       TeacherSpecializationDecorator.decorate_collection(paginating.second)
     end
 
+    def teachers_names_with_ids
+      UserDecorator.decorate_collection(teacher_users).map do |teacher|
+        [teacher.last_name_with_initials, teacher.id]
+      end
+    end
+
     def teacher_users
-      @teacher_users ||= organization.users.teachers
+      @teacher_users ||= organization.users.teachers_and_head_teachers
     end
 
     def paginating

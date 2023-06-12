@@ -9,11 +9,7 @@ class UserDecorator < ApplicationDecorator
     [object.last_name, object.first_name, object.middle_name].compact.join(" ").presence
   end
 
-  def value_with_id
-    [last_name_and_initials, object.id]
-  end
-
-  def last_name_and_initials
+  def last_name_with_initials
     "#{object.last_name} #{initials}"
   end
 

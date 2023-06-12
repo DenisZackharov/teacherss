@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   scope :teachers, -> { where(role: :teacher) }
   scope :head_teachers, -> { where(role: :head_teacher) }
+  scope :teachers_and_head_teachers, -> { teachers.or(head_teachers) }
 
   def employees_with_hours?
     EMPLOYEES_WITH_HOURS.include?(role)

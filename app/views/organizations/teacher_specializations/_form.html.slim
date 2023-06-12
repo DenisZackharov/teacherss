@@ -1,0 +1,7 @@
+= simple_form_for [organization, teacher_specialization] do |f|
+  = f.input :user_id, collection: teachers
+  = f.input :subject_id, collection: subjects
+  = f.input :field_of_study_id, collection: field_of_studies
+  = f.input :degree
+  .submit
+    = f.button :submit, class: "btn btn-success"

@@ -1,0 +1,7 @@
+en:
+  ransack:
+    attributes:
+      user_id: "User"
+      subject_id: "Subject"
+      field_of_study_id: "Field of Study"
+      degree: "Degree"

@@ -1,4 +1,5 @@
 $gray: rgb(183, 182, 182);
+$white: rgb(255, 255, 255);
 
 button {
   background-color: transparent;
@@ -23,9 +24,36 @@ abbr {
   margin-bottom: 10px;
 }
 
-.card-form {
+.inline-form {
   align-items: flex-end;
   column-gap: 5px;
   display: flex;
   margin-bottom: 10px;
+}
+
+.search-form {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.search-inputs {
+  align-items: flex-end;
+  column-gap: 5px;
+  display: flex;
+}
+
+.search-reset {
+  display: flex;
+}
+
+.sort-link {
+  color: $white;
+  text-decoration: none;
+}
+
+.sort-link:hover {
+  color: $white;
+  text-decoration: underline;
 }

@@ -2,7 +2,6 @@ module Organizations
   class TeacherSpecializationsController < ApplicationController
     before_action :authorize!
 
-    expose :teacher_specialization
     expose :subjects, from: :organization
     expose :field_of_studies, from: :organization
     expose :organization, id: -> { params[:organization_id] }
@@ -18,13 +17,13 @@ module Organizations
     end
 
     def teachers_names_with_ids
-      UserDecorator.decorate_collection(teacher_users).map do |teacher|
+      UserDecorator.decorate_collection(teachers_and_head_teachers).map do |teacher|
         [teacher.last_name_with_initials, teacher.id]
       end
     end
 
-    def teacher_users
-      @teacher_users ||= organization.users.teachers_and_head_teachers
+    def teachers_and_head_teachers
+      @teachers_and_head_teachers ||= organization.users.teachers_and_head_teachers
     end
 
     def paginating
@@ -36,7 +35,7 @@ module Organizations
     end
 
     def raw_relation
-      TeacherSpecialization.where(user: teacher_users).includes(:user, :subject, :field_of_study)
+      TeacherSpecialization.where(user: teachers_and_head_teachers).includes(:user, :subject, :field_of_study)
     end
   end
 end

@@ -1,0 +1,39 @@
+= turbo_frame_tag "organization_content"
+  h1 Teacher Specializations
+  = search_form_for search, builder: SimpleForm::FormBuilder,
+    url: organization_teacher_specializations_path(organization),
+    html: { class: "search-form" },
+    defaults: { required: false, include_blank: true } do |f|
+    .search-inputs
+      = f.input :user_id_eq, collection: teachers,
+        label: t("ransack.attributes.user_id")
+      = f.input :subject_id_eq, collection: subjects,
+        label: t("ransack.attributes.subject_id")
+      = f.input :field_of_study_id_eq, collection: field_of_studies,
+        label: t("ransack.attributes.field_of_study_id")
+      = f.input :degree_eq, as: :integer, label: t("ransack.attributes.degree")
+      = f.submit value: "▶", class: "btn btn-success"
+    .search-reset
+      = link_to "Reset",
+          organization_teacher_specializations_path(organization, search: nil),
+          class: "btn btn-light"
+
+  table
+    tr
+      th = sort_link(search, :user_id, "Teacher", default_order: :asc,
+        class: "sort-link")
+      th = sort_link(search, :subject_id, "Subject", default_order: :asc,
+        class: "sort-link")
+      th = sort_link(search, :field_of_study_id, "Field Of Study",
+        default_order: :asc, class: "sort-link")
+      th = sort_link(search, :degree, "Degree", default_order: :asc,
+        class: "sort-link")
+    - teacher_specializations.each do |teacher_specialization|
+      tr
+        td = teacher_specialization.user.last_name_with_initials
+        td = teacher_specialization.subject.name
+        td = teacher_specialization.field_of_study.name
+        td = teacher_specialization.degree
+
+  hr
+  ==< pagy_bootstrap_nav(paginate)

@@ -9,7 +9,17 @@ class UserDecorator < ApplicationDecorator
     [object.last_name, object.first_name, object.middle_name].compact.join(" ").presence
   end
 
+  def last_name_with_initials
+    "#{object.last_name} #{initials}"
+  end
+
   def role
     object.role.humanize
+  end
+
+  private
+
+  def initials
+    [object.first_name, object.middle_name].compact.map { |word| "#{word.first}." }.join(" ")
   end
 end
